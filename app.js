@@ -35,8 +35,8 @@ function randomize() {
   }
 
   // combine values from loop to properly convert into usable hex code
-  color1.value = '#' + color1Value.join('');
-  color2.value = '#' + color2Value.join('');
+  color1.value = `#${color1Value.join('')}`;
+  color2.value = `#${color2Value.join('')}`;
 
   // call setGradient to use new color values
   setGradient();
