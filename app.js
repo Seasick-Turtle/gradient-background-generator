@@ -37,6 +37,7 @@ function randomize() {
 
 }
 
+// invoke to set initial gradient
 setGradient();
 
 color1.addEventListener('input', setGradient);
