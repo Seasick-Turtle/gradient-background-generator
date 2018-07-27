@@ -25,10 +25,13 @@ h3 {
 	letter-spacing: 0.01em;
 }
 
-.random {
+button {
 	font: 600 .8em 'Raleway', sans-serif;
+	/* transparent border for Chrome border radius bug */
+	border: 1px solid transparent;
 	border-radius: 10px;
 	padding: .5em;
+	outline: none;
 }
 
 input {
