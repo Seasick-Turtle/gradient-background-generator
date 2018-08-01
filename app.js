@@ -1,6 +1,5 @@
-let color1 = document.querySelector('.color1');
-let color2 = document.querySelector('.color2');
-let rand = document.querySelector('.random');
+const [color1, color2] = document.querySelectorAll('.color');
+const rand = document.querySelector('.random');
 
 const setGradient = () => {
   let css = document.querySelector('h3');
@@ -14,22 +13,28 @@ const setGradient = () => {
   css.textContent = `${body.style.background};`;
 };
 
-const generateColors = () => {
-  let min = Math.ceil(0);
-  let max = Math.ceil(255);
-  let color1Value = [];
-  let color2Value = [];
+const generateRandomValues = (color1, color2) => {
+  const min = Math.ceil(0);
+  const max = Math.ceil(255);
 
   for (let i = 0; i < 3; i++) {
     // generate 3 rgb values, convert to hex values, push to array
-    color1Value.push((Math.floor(Math.random() * (max - min +1)) +min).toString(16));
-    color2Value.push((Math.floor(Math.random() * (max - min +1)) +min).toString(16));
+    color1.push((Math.floor(Math.random() * (max - min +1)) +min).toString(16));
+    color2.push((Math.floor(Math.random() * (max - min +1)) +min).toString(16));
 
     // if converted hex value is too short, add 0 to the front of the value
-    color1Value[i] = (color1Value[i].length < 2 ? `0${color1Value[i]}` : color1Value[i]);
-    color2Value[i] = (color2Value[i].length < 2 ? `0${color2Value[i]}` : color2Value[i]);
+    color1[i] = (color1[i].length < 2 ? `0${color1[i]}` : color1[i]);
+    color2[i] = (color2[i].length < 2 ? `0${color2[i]}` : color2[i]);
 
   }
+};
+
+const generateColors = () => {
+
+  let color1Value = [];
+  let color2Value = [];
+
+  generateRandomValues(color1Value, color2Value);
 
   // combine values from loop to properly convert into usable hex code
   color1.value = `#${color1Value.join('')}`;
